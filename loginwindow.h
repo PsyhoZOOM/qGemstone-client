@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "client.h"
+#include "QLineEdit"
 
 namespace Ui {
 class LoginWindow;
@@ -15,15 +16,19 @@ class LoginWindow : public QDialog
 public:
     explicit LoginWindow(QWidget *parent = 0);
     ~LoginWindow();
+    bool loggedIn;
+
+
 
 private slots:
     void on_bLogin_clicked();
     void sendData();
-    bool loggedIn = false;
+
 
 private:
     Ui::LoginWindow *ui;
     Client client;
+
 };
 
 #endif // LOGINWINDOW_H

@@ -28,13 +28,16 @@ void LoginWindow::sendData()
 {
     QJsonObject json;
     json.insert("action", "login");
-    json.insert("username", "baki");
-    json.insert("password", QString(QCryptographicHash::hash(("baki"), QCryptographicHash::Md5).toHex()));
+    json.insert("username", ui->luserName->text());
+    QString pass = ui->lpassword->text();
+    QString md5pass = QString(QCryptographicHash::hash((pass.toLocal8Bit()), QCryptographicHash::Md5).toHex());
+    json.insert("password", md5pass);
 
     QJsonDocument doc(json);
     QString a = doc.toJson(QJsonDocument::Compact);
     qDebug() << a;
     client.sendData(a);
+    loggedIn = true;
     this->close();
 
 
