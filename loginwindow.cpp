@@ -35,6 +35,7 @@ void LoginWindow::sendData()
     QString a = doc.toJson(QJsonDocument::Compact);
     qDebug() << a;
     client.sendData(a);
+    this->close();
 
 
 }

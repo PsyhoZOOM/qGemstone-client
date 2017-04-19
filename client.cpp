@@ -13,6 +13,8 @@
 
 void Client::start()
 {
+    if(clients.isOpen())
+        return;
     clients.connectToHost("127.0.0.1", 8543);
     qDebug() << "CONNECTEd"+clients.isOpen();
 
@@ -40,10 +42,14 @@ void Client::sendData(QString data)
 
 
 void Client::readData(){
-    QByteArray localReadLine = clients.readLine();
+    QByteArray localReadLine;
+    clients.waitForReadyRead();
+        localReadLine = clients.readAll();
+
     QJsonDocument itemdoc = QJsonDocument::fromJson(localReadLine);
     QJsonObject obj = itemdoc.object();
-    qDebug() << obj.keys();
+
+    qDebug() << obj.value("Message");
 }
 
 

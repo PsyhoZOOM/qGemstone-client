@@ -15,11 +15,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     client.cpp \
-    loginwindow.cpp
+    loginwindow.cpp \
+    mainwindow.cpp
 
 HEADERS  += \
     client.h \
-    loginwindow.h
+    loginwindow.h \
+    mainwindow.h
 
 FORMS
 
@@ -28,5 +30,6 @@ CONFIG += console
 MOBILITY = 
 
 FORMS += \
-    loginwindow.ui
+    loginwindow.ui \
+    mainwindow.ui
 

@@ -19,6 +19,7 @@ public:
 private slots:
     void on_bLogin_clicked();
     void sendData();
+    bool loggedIn = false;
 
 private:
     Ui::LoginWindow *ui;
