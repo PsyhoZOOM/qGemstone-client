@@ -10,6 +10,7 @@ public:
     void start();
     Client();
     ~Client();
+    void readData();
 public slots:
 void sendData(QString data);
 

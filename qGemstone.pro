@@ -14,14 +14,19 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        loginwindow.cpp \
-    client.cpp
+    client.cpp \
+    loginwindow.cpp
 
-HEADERS  += loginwindow.h \
-    client.h
+HEADERS  += \
+    client.h \
+    loginwindow.h
 
-FORMS    += loginwindow.ui
+FORMS
 
 CONFIG += mobility
+CONFIG += console
 MOBILITY = 
+
+FORMS += \
+    loginwindow.ui
 

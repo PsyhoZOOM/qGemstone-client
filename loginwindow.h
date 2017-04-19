@@ -2,6 +2,7 @@
 #define LOGINWINDOW_H
 
 #include <QDialog>
+#include "client.h"
 
 namespace Ui {
 class LoginWindow;
@@ -15,8 +16,13 @@ public:
     explicit LoginWindow(QWidget *parent = 0);
     ~LoginWindow();
 
+private slots:
+    void on_bLogin_clicked();
+    void sendData();
+
 private:
     Ui::LoginWindow *ui;
+    Client client;
 };
 
 #endif // LOGINWINDOW_H
